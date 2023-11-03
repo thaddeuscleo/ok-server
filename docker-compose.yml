@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  app:
+    image: ok_server:1.0.0
+    hostname: ok_server
+    container_name: ok_server
+    ports:
+      - 8080:8080
+    restart: "unless-stopped"
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      tags:
+        - "ok_server:1.0.0"
+    profiles:
+      - build

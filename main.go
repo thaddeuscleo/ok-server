@@ -16,7 +16,12 @@ func main() {
 		w.Write(jsonByte)
 	})
 
-	log.Printf("Server is running on port %s", args[1])
-	serverStr := fmt.Sprintf(":%s", args[1])
+	port := "8080"
+	if len(args) > 1 {
+		port = args[1]
+	}
+
+	log.Printf("Server is running on port %s", port)
+	serverStr := fmt.Sprintf(":%s", port)
 	http.ListenAndServe(serverStr, nil)
 }
